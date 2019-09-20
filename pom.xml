@@ -2477,6 +2477,7 @@
               <include>org.eclipse.jetty:jetty-util</include>
               <include>org.eclipse.jetty:jetty-server</include>
               <include>com.google.guava:guava</include>
+              <include>com.google.guava:failureaccess</include>
               <include>org.jpmml:*</include>
             </includes>
           </artifactSet>
