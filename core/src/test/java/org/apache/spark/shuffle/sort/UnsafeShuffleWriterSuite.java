@@ -21,6 +21,7 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.*;
 
+import com.google.common.collect.ImmutableSet;
 import scala.Option;
 import scala.Product2;
 import scala.Tuple2;
@@ -230,7 +231,7 @@ public class UnsafeShuffleWriterSuite {
   @Test
   public void writeEmptyIterator() throws Exception {
     final UnsafeShuffleWriter<Object, Object> writer = createWriter(true);
-    writer.write(Iterators.emptyIterator());
+    writer.write((Iterator<Product2<Object, Object>>) ImmutableSet.of().iterator());
     final Option<MapStatus> mapStatus = writer.stop(true);
     assertTrue(mapStatus.isDefined());
     assertTrue(mergedOutputFile.exists());
